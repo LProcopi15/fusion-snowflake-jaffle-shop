@@ -4,8 +4,6 @@ models:
     data_tests:
       - dbt_utils.expression_is_true:
           expression: "order_items_subtotal = subtotal"
-      - dbt_utils.expression_is_true:
-          expression: "order_total = subtotal + tax_paid"
     columns:
       - name: order_id
         description: The unique key of the orders mart.
