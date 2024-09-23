@@ -27,7 +27,11 @@ renamed as (
 
         coalesce(type = 'beverage', false) as is_drink_item,
 
-        iff(product_description ilike any('%beef%', '%pork%'), false, true) as is_vegetarian
+        iff(
+            product_description ilike any('%beef%', '%pork%'),
+            false,
+            true
+        ) as is_vegetarian
 
     from source
 
