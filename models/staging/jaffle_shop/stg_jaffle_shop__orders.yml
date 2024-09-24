@@ -1,5 +1,5 @@
 models:
-  - name: stg_orders
+  - name: stg_jaffle_shop__orders
     description: Order data with basic cleaning and transformation applied, one row per order.
     columns:
       - name: order_id

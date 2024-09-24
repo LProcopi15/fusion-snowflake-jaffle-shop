@@ -2,13 +2,19 @@ with
 
 orders as (
 
-    select * from {{ ref('stg_orders') }}
+    select * from {{ ref('stg_jaffle_shop__orders') }}
 
 ),
 
 order_items as (
 
-    select * from {{ ref('order_items') }}
+    select * from {{ ref('stg_jaffle_shop__order_items') }}
+
+),
+
+payments as (
+
+    select * from {{ ref('stg_stripe__payments') }}
 
 ),
 
