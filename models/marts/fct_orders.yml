@@ -30,7 +30,7 @@ models:
 unit_tests:
   - name: test_order_items_compute_to_bools_correctly
     description: "Test that the counts of drinks and food orders convert to booleans properly."
-    model: fct_orders
+    model: fct_order_items
     given:
       - input: ref('fct_order_items')
         rows:

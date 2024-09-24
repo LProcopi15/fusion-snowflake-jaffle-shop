@@ -8,7 +8,7 @@ orders as (
 
 order_items as (
 
-    select * from {{ ref('stg_jaffle_shop__order_items') }}
+    select * from {{ ref('fct_order_items') }}
 
 ),
 
