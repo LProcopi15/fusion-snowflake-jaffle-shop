@@ -1,7 +1,3 @@
-{{
-    config(access='public')
-}}
-
 with
 
 source as (

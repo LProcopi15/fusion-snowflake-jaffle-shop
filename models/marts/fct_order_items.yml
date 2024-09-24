@@ -1,5 +1,5 @@
 models:
-  - name: order_items
+  - name: fct_order_items
     columns:
       - name: order_item_id
         data_tests:
@@ -8,29 +8,29 @@ models:
       - name: order_id
         data_tests:
           - relationships:
-              to: ref('orders')
+              to: ref('dim_orders')
               field: order_id
 
 unit_tests:
   - name: test_supply_costs_sum_correctly
     description: "Test that the counts of drinks and food orders convert to booleans properly."
-    model: order_items
+    model: fct_order_items
     given:
-      - input: ref('stg_supplies')
+      - input: ref('stg_jaffle_shop__supplies')
         rows:
           - { product_id: 1, supply_cost: 4.50 }
           - { product_id: 2, supply_cost: 3.50 }
           - { product_id: 2, supply_cost: 5.00 }
-      - input: ref('stg_products')
+      - input: ref('stg_jaffle_shop__products')
         rows:
           - { product_id: 1 }
           - { product_id: 2 }
-      - input: ref('stg_order_items')
+      - input: ref('stg_jaffle_shop__order_items')
         rows:
           - { order_id: 1, product_id: 1 }
           - { order_id: 2, product_id: 2 }
           - { order_id: 2, product_id: 2 }
-      - input: ref('stg_orders')
+      - input: ref('stg_jaffle_shop__orders')
         rows:
           - { order_id: 1 }
           - { order_id: 2 }
@@ -41,12 +41,12 @@ unit_tests:
         - { order_id: 2, product_id: 2, supply_cost: 8.50 }
 
 semantic_models:
-  - name: order_item
+  - name: fct_order_items
     defaults:
       agg_time_dimension: ordered_at
     description: |
       Items contatined in each order. The grain of the table is one row per order item.
-    model: ref('order_items')
+    model: ref('fct_order_items')
     entities:
       - name: order_item
         type: primary
