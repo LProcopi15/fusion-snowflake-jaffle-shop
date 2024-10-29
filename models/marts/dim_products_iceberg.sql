@@ -8,10 +8,10 @@
 
 with
 
-locations as (
+products as (
 
-    select * from {{ ref('stg_jaffle_shop__locations') }}
+    select * from {{ ref('stg_jaffle_shop__products') }}
 
 )
 
-select * from locations
+select * from products
