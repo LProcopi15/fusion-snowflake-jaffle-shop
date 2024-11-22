@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: tpcds_sf100tcl
+    database: snowflake_sample_data
+    description: E-commerce data for the Jaffle Shop
+    tables:
+      - name: customer
+
+      - name: catalog_sales
