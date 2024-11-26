@@ -7,10 +7,10 @@
 
 with
 
-products as (
+supplies as (
 
-    select * from {{ ref('stg_jaffle_shop__products') }}
+    select * from {{ ref('stg_jaffle_shop__supplies') }}
 
 )
 
-select * from products
+select * from supplies
