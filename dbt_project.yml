@@ -34,6 +34,10 @@ models:
   leah_snowflake_jaffle_shop:
     staging:
       +materialized: view
+      
+      snowflake_sample_data:
+        +enabled: false
+
     marts:
       +materialized: table
       athena:
