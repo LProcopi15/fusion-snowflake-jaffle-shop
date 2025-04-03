@@ -1,3 +1,9 @@
+{{
+    config(
+        access='public'
+    )
+}}
+
 with
 
 orders as (
