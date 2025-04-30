@@ -32,6 +32,8 @@ flags:
 
 models:
   leah_snowflake_jaffle_shop:
+    # +pre-hook:
+    #   - "{{ validate_naming_conventions() }}"
     staging:
       +materialized: view
       
