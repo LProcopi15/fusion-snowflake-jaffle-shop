@@ -125,7 +125,7 @@ metrics:
     type: ratio
     type_params:
       numerator: food_revenue
-      denominator: revenue
+      denominator: orders
   - name: drink_revenue_pct
     description: The % of order revenue from drinks.
     label: Drink Revenue %
