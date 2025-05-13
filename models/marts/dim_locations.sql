@@ -2,7 +2,7 @@ with
 
 locations as (
 
-    select * from {{ ref('stg_jaffle_shop__locations') }}
+    select *, 1 as foo from {{ ref('stg_jaffle_shop__locations') }}
 
 )
 
