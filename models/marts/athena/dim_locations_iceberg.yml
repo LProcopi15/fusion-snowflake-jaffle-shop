@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_locations
+  - name: dim_locations_iceberg
     description: This model provides a comprehensive view of location data, including
       unique identifiers, names, tax rates, and opening dates, sourced from the 'stg_jaffle_shop__locations'
       staging model. It is materialized as an Iceberg table for efficient querying and
@@ -19,6 +19,8 @@ models:
       - name: location_name
         data_type: varchar
         description: The name of the location.
+        constraints:
+          - type: not_null
 
       - name: tax_rate
         data_type: float
@@ -27,29 +29,3 @@ models:
       - name: opened_date
         data_type: timestamp_ntz
         description: The date when the location was opened.
-
-
-semantic_models:
-  - name: dim_locations
-    description: |
-      Location dimension table. The grain of the table is one row per location.
-    model: ref('dim_locations')
-    defaults:
-      agg_time_dimension: opened_date
-    entities:
-      - name: location
-        type: primary
-        expr: location_id
-    dimensions:
-      - name: location_name
-        type: categorical
-      - name: opened_date
-        expr: opened_date
-        type: time
-        type_params:
-          time_granularity: day
-    measures:
-      - name: average_tax_rate
-        description: Average tax rate.
-        expr: tax_rate
-        agg: average

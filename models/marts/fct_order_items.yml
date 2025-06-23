@@ -8,7 +8,7 @@ models:
       - name: order_id
         data_tests:
           - relationships:
-              to: ref('dim_orders')
+              to: ref('fct_orders')
               field: order_id
 
 unit_tests:
