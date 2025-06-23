@@ -1,6 +1,7 @@
 {{
     config(
-        materialized = "iceberg_table",
+        materialized = "table",
+        table_format="iceberg",
         external_volume="s3_lprocopi_iceberg",
     )
 }}

@@ -1,8 +1,16 @@
+{{
+    config(
+        materialized = "table",
+        on_schema_change="append_new_columns"
+    )
+}}
 with
 
 locations as (
 
-    select *, 1 as foo from {{ ref('stg_jaffle_shop__locations') }}
+    select
+        *, 
+    from {{ ref('stg_jaffle_shop__locations') }}
 
 )
 
