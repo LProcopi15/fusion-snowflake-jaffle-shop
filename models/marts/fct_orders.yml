@@ -44,6 +44,16 @@ semantic_models:
       - name: customer
         type: foreign
         expr: customer_id
+
+
+      - name: order_date_entity
+        type: foreign
+        expr: ordered_at
+
+      - name: delivery_date_entity
+        type: foreign
+        expr: delivered_at
+
     dimensions:
       - name: ordered_at
         expr: ordered_at

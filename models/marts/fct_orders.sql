@@ -76,6 +76,7 @@ customer_order_count as (
 
     select
         *,
+        '2024-01-01'::date as delivered_at,
 
         row_number() over (
             partition by customer_id
