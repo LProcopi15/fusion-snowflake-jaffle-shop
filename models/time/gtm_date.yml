@@ -3,8 +3,11 @@ semantic_models:
   description: A date dimension table providing fiscal time attributes for analysis.
   model: ref('gtm_date')
   entities:
-  - name: order_date_entity
+  - name: date_id
     type: primary
+
+  - name: order_date_entity
+    type: unique
     expr: date_day
 
   - name: delivery_date_entity
