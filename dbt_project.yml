@@ -30,14 +30,11 @@ flags:
 
   require_generic_test_arguments_property: true
 models:
-  leah_snowflake_jaffle_shop:
+  fusion_snowflake_jaffle_shop:
     # +pre-hook:
     #   - "{{ validate_naming_conventions() }}"
     staging:
       +materialized: view
-
-      snowflake_sample_data:
-        +enabled: false
 
     marts:
       +materialized: table
