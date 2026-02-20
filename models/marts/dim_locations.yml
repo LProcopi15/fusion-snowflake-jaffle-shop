@@ -2,13 +2,7 @@ version: 2
 
 models:
   - name: dim_locations
-    description: This model provides a comprehensive view of location data, including
-      unique identifiers, names, tax rates, and opening dates, sourced from the 'stg_jaffle_shop__locations'
-      staging model. It is materialized as an Iceberg table for efficient querying and
-      storage in an external S3 volume.
-    contract:
-      enforced: true
-
+    description: This model provides a comprehensive view of location data, including unique identifiers, names, tax rates, and opening dates, sourced from the 'stg_jaffle_shop__locations' staging model. It is materialized as an Iceberg table for efficient querying and storage in an external S3 volume.
     columns:
       - name: location_id
         data_type: varchar
@@ -28,6 +22,10 @@ models:
         data_type: timestamp_ntz
         description: The date when the location was opened.
 
+
+    config:
+      contract:
+        enforced: true
 
 semantic_models:
   - name: dim_locations
