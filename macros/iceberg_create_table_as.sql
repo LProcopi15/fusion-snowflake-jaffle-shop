@@ -7,8 +7,8 @@
     {%- set copy_grants = config.get('copy_grants', default=false) -%}
 
     {# Iceberg specific configs #}
-    {%- set external_volume = config.get('_extra').get('external_volume') -%}
-    {%- set catalog = config.get('_extra').get('catalog') or 'snowflake' -%}
+    {%- set external_volume = config.meta_get('_extra').get('external_volume') -%}
+    {%- set catalog = config.meta_get('_extra').get('catalog') or 'snowflake' -%}
     {%- set base_location = '_dbt/' ~ relation.schema ~ '/' ~ relation.identifier -%}
 
     {%- if cluster_by_keys is not none and cluster_by_keys is string -%}

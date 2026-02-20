@@ -1,6 +1,6 @@
 config-version: 2
 
-name: "leah_snowflake_jaffle_shop"
+name: "fusion_snowflake_jaffle_shop"
 version: "3.0.0"
 require-dbt-version: ">=1.5.0"
 
@@ -15,8 +15,6 @@ test-paths: ["data-tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-
-target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
@@ -30,15 +28,13 @@ vars:
 flags:
   enable_iceberg_materializations: true
 
+  require_generic_test_arguments_property: true
 models:
-  leah_snowflake_jaffle_shop:
+  fusion_snowflake_jaffle_shop:
     # +pre-hook:
     #   - "{{ validate_naming_conventions() }}"
     staging:
       +materialized: view
-      
-      snowflake_sample_data:
-        +enabled: false
 
     marts:
       +materialized: table
